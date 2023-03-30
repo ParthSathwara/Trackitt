@@ -1,5 +1,0 @@
-for woker:
-celery -A Trackitt.celery worker --pool=solo -l info
-
-for beat:
-celery -A Trackitt beat -l INFO
