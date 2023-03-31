@@ -9,7 +9,7 @@
     <form action="/tracker">
         <label for="stockpicker">Select the stocks for your watchlist:</label>
 
-        <select class="form-select text-center" size="15" multiple aria-label="multiple select example" name="stockpicker" style="background-color: rgba(218, 235, 255, 0.155);">
+        <select class="form-select text-center" size="15" multiple aria-label="multiple select example" name="stockpicker" style="background-color: rgba(218, 235, 255, 0.395);">
             {% for i in context %}
             <option value="{{i}}" class="border-bottom border-muted border-1 mb-1">{{i}}</option>
             {% endfor %}

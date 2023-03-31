@@ -2,11 +2,13 @@ from django.shortcuts import render, HttpResponse, redirect
 from yahoo_fin.stock_info import *
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import time
 from threading import Thread
 import queue
 from asgiref.sync import sync_to_async
+
 
 def home(request):
     if request.user.is_authenticated:
@@ -14,11 +16,13 @@ def home(request):
     else:
         return render(request, 'home.html')
 
+@login_required
 def stock_picker(request):
     stk_pikr = tickers_nifty50()
     print(stk_pikr)
     return render(request, 'picker.html', {'context': stk_pikr})
 
+@login_required
 def stock_tracker(request):
     start = time.time()
     selected_stocks = request.GET.getlist('stockpicker')
@@ -49,6 +53,8 @@ def stock_tracker(request):
         
     end = time.time()
     time_taken = end - start
+    print('###############DATA################')
+    print(data)
     print('>>>> TIME TAKEN: ', time_taken)    
     return render(request, 'tracker.html', {'context': data, 'room_name':'track', 'selectedstock':stockshare})
 
@@ -86,7 +92,6 @@ def handleSignup(request):
     else:
         return HttpResponse('404 Not found')
 
-
 def handleLogin(request):
     if request.method == "POST":
         loginusername = request.POST['loginusername']
@@ -100,8 +105,9 @@ def handleLogin(request):
         else:
             messages.error(request, 'Invalid credentials!!! Please Try again')
             return redirect('home')
-    
-    return HttpResponse('404 Not Found')
+        
+    messages.warning(request, 'Login for access')
+    return redirect('home')
 
 def handleLogout(request):
     logout(request)

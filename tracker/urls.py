@@ -6,6 +6,6 @@ urlpatterns = [
     path('picker/', views.stock_picker, name='picker'), # type: ignore
     path('tracker/', views.stock_tracker, name='tracker'), # type: ignore
     path('signup', views.handleSignup, name='signup'),
-    path('login', views.handleLogin, name='handleLogin'),
+    path('accounts/login/', views.handleLogin, name='handleLogin'),
     path('logout', views.handleLogout, name='handleLogout'),
 ]
