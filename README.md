@@ -2,7 +2,7 @@
 ## Live stock tracker
 Live stock tracker webapp built using Django, yahoo_fin, django-channels, celery, celery-beat and redis
 
-![image](https://user-images.githubusercontent.com/87648167/229044868-d0b17711-0343-4e07-b21d-586bfaa1a39b.png)
+This is a Django project that allows you to track the live stock prices of companies using Yahoo_fin API. The project includes functionality to track multiple companies at once and provides real-time updates of the stock prices through WebSockets using Channels. The project uses Celery and Django-celery-beat for task scheduling.
 
 
 #### Demo of Webapp: 
