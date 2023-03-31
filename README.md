@@ -15,13 +15,14 @@ https://user-images.githubusercontent.com/87648167/229045643-3b3941a0-f4d5-4cb7-
 ## Below instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-   - Python 3.6+
-   - Django 3.0+
+   - Python 3.10+
+   - Django 4.1.7
    - yahoo_fin
-   - redis
-   - Channels 3.0+
+   - redis 4.5.4
+   - Channels 4.0.0
    - Celery 5.0+
-   - Django-celery-beat 2.2+
+   - Django-celery-beat 2.5.0
+   - django-celery-results 2.5.0
 
 
 ### Clone the repository:
